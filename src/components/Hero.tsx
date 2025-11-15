@@ -34,7 +34,7 @@ export default function Hero() {
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             The Future of
-            <span className="block text-[#FA8100]">Heavy-Lift Delivery</span>
+            <span className="block text-[#FA8100]">Fast, Reliable, Efficient Deliveries and Agricultural Logistics Drones</span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
