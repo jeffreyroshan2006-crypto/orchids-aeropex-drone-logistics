@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 font-['Montserrat']">Quick Links</h3>
             <ul className="space-y-2">
-              {["Home", "About", "Titan X1", "Flyzonow", "Team", "Contact"].map((link) => (
+              {["Home", "About", "Titan X1", "Flyzo", "Team", "Contact"].map((link) => (
                 <li key={link}>
                   <Link
                     href={`#${link.toLowerCase().replace(" ", "-")}`}
@@ -53,8 +53,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#flyzonow" className="text-gray-400 hover:text-[#FA8100] transition-colors text-sm">
-                  Flyzonow Delivery
+                <Link href="#flyzo" className="text-gray-400 hover:text-[#FA8100] transition-colors text-sm">
+                  Flyzo Delivery
                 </Link>
               </li>
               <li>
