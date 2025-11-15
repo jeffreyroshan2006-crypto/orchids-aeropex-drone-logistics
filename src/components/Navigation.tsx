@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import Image from "next/image";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,22 +22,10 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="#home" className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 transform group-hover:scale-105 transition-transform">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/94c38cdf-ec40-40cb-b7ec-f1a0f7f0afa1/generated_images/modern-tech-startup-logo-for-aeropex-tec-5cd51511-20251115130325.jpg"
-                alt="Aeropex Technologies Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-[#2139A0] font-['Montserrat'] leading-tight">
-                Aeropex
-              </span>
-              <span className="text-xs text-gray-600 leading-tight">Technologies</span>
-            </div>
+          <Link href="#home" className="group">
+            <span className="text-xl md:text-2xl font-bold text-[#2139A0] font-['Montserrat'] hover:text-[#FA8100] transition-colors">
+              Aeropex Technologies
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
