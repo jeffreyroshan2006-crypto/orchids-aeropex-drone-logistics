@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import TitanX1 from "@/components/TitanX1";
-import Flyzonow from "@/components/Flyzonow";
+import Flyzo from "@/components/Flyzo";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <TitanX1 />
-      <Flyzonow />
+      <Flyzo />
       <Team />
       <Contact />
       <Footer />

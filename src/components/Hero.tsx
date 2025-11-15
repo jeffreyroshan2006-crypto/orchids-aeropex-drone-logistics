@@ -38,7 +38,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-            Aeropex Technologies is pioneering autonomous drone logistics with the Titan X1 hexacopter and Flyzonow rapid delivery service, transforming how goods reach remote and urban areas across India.
+            Aeropex Technologies is pioneering autonomous drone logistics with the Titan X1 hexacopter and Flyzo rapid delivery service, transforming how goods reach remote and urban areas across India.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -59,8 +59,8 @@ export default function Hero() {
               variant="outline"
               className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#2139A0] font-semibold text-lg px-8 py-6 group"
             >
-              <Link href="#flyzonow">
-                Learn About Flyzonow
+              <Link href="#flyzo">
+                Learn About Flyzo
                 <Play className="ml-2" size={20} />
               </Link>
             </Button>

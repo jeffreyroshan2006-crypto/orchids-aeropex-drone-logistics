@@ -12,7 +12,7 @@ export default function Navigation() {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Titan X1", href: "#titan-x1" },
-    { name: "Flyzonow", href: "#flyzonow" },
+    { name: "Flyzo", href: "#flyzo" },
     { name: "Team", href: "#team" },
     { name: "Contact", href: "#contact" },
   ];
