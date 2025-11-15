@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -76,19 +76,10 @@ export default function Footer() {
               <li className="flex items-start space-x-3 text-sm">
                 <Mail size={18} className="text-[#FA8100] mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:contact@aeropex.tech"
+                  href="mailto:admin@aeropex.co"
                   className="text-gray-400 hover:text-[#FA8100] transition-colors"
                 >
-                  contact@aeropex.tech
-                </a>
-              </li>
-              <li className="flex items-start space-x-3 text-sm">
-                <Phone size={18} className="text-[#FA8100] mt-0.5 flex-shrink-0" />
-                <a
-                  href="tel:+919876543210"
-                  className="text-gray-400 hover:text-[#FA8100] transition-colors"
-                >
-                  +91 98765 43210
+                  admin@aeropex.co
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
