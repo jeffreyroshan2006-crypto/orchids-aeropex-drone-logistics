@@ -15,14 +15,14 @@ export default function TitanX1() {
     {
       icon: Gauge,
       label: "Max Range",
-      value: "100km",
+      value: "200+km",
       description: "Extended coverage for remote deliveries",
     },
     {
       icon: Battery,
       label: "Flight Time",
-      value: "60 min",
-      description: "Optimized battery efficiency",
+      value: "2.5-3.5Hr",
+      description: "Varies with payload",
     },
     {
       icon: Wind,
@@ -34,7 +34,7 @@ export default function TitanX1() {
       icon: Cpu,
       label: "Autonomous AI",
       value: "Level 4",
-      description: "Advanced navigation & obstacle avoidance",
+      description: "Uses AI supercomputer for high level redundancy",
     },
     {
       icon: Shield,
