@@ -48,7 +48,7 @@ export default function TitanX1() {
     {
       icon: Droplets,
       label: "Tank Capacity",
-      value: "20L",
+      value: "20-50max",
       description: "High-capacity swappable sprayer tank",
     },
     {
