@@ -73,11 +73,11 @@ export default function Hero() {
               <div className="text-sm text-white/70">Payload Capacity</div>
             </div>
             <div className="text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">100km</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">200km</div>
               <div className="text-sm text-white/70">Max Range</div>
             </div>
             <div className="text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">30min</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">5-30min</div>
               <div className="text-sm text-white/70">Avg Delivery</div>
             </div>
           </div>

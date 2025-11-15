@@ -35,7 +35,7 @@ export default function Flyzonow() {
     {
       icon: Clock,
       title: "Lightning Fast",
-      description: "Average delivery time of 30 minutes, regardless of terrain or traffic",
+      description: "Average delivery time of 5-30 minutes, regardless of terrain or traffic",
     },
     {
       icon: Shield,
