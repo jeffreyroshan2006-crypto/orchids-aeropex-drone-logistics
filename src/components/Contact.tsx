@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,14 +28,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Us",
-      content: "contact@aeropex.tech",
-      link: "mailto:contact@aeropex.tech",
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      content: "+91 98765 43210",
-      link: "tel:+919876543210",
+      content: "admin@aeropex.co",
+      link: "mailto:admin@aeropex.co",
     },
     {
       icon: MapPin,
