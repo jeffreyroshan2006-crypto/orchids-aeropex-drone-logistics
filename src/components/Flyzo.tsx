@@ -157,10 +157,10 @@ export default function Flyzo() {
 
         {/* How It Works */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            How It Works
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+              How It Works
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {deliverySteps.map((step, index) => (
               <div key={index} className="relative">
                 <Card className="p-6 h-full border-2 hover:border-[#2139A0] transition-all hover:shadow-lg group">
