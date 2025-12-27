@@ -315,12 +315,11 @@ export default function TitanX1() {
               <div className="space-y-6">
                 <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border-2 border-green-200">
                   <h5 className="text-lg font-bold text-gray-900 mb-3">Precision Agriculture</h5>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>🌾 Pesticide & herbicide spraying</li>
-                    <li>💧 Fertilizer application</li>
-                    <li>🌱 Orchard & row crop support</li>
-                    <li>📊 Crop health monitoring (optional sensor)</li>
-                  </ul>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>🌾 Pesticide/fertilizer/herbicide spraying</li>
+                      <li>🌱 Orchard & row crop support</li>
+                      <li>📊 Crop health monitoring (optional sensor)</li>
+                    </ul>
                 </div>
 
                 <div className="p-6 bg-gradient-to-br from-[#2139A0]/5 to-[#FA8100]/5 rounded-2xl">
