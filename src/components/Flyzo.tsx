@@ -4,32 +4,38 @@ import { Card } from "./ui/card";
 import { ShoppingBag, Pill, Package, Zap, Clock, Leaf, MapPin, Smartphone, CheckCircle, Shield } from "lucide-react";
 
 export default function Flyzo() {
-  const deliverySteps = [
-    {
-      icon: Smartphone,
-      title: "Browse & Order",
-      description: "Open the Flyzo app, select items from partnered stores/fulfillment centers",
-      step: "01",
-    },
-    {
-      icon: Zap,
-      title: "Autonomous Dispatch",
-      description: "Our AI assigns the fastest Titan X1 drone from the nearest hub",
-      step: "02",
-    },
-    {
-      icon: MapPin,
-      title: "Real-Time Tracking",
-      description: "Watch your order fly in live GPS view on the app",
-      step: "03",
-    },
-    {
-      icon: CheckCircle,
-      title: "Safe Handover",
-      description: "Drone lands autonomously, delivers to your doorstep or pickup point",
-      step: "04",
-    },
-  ];
+    const deliverySteps = [
+      {
+        icon: Smartphone,
+        title: "Browse & Order",
+        description: "Open the Flyzo app, select items from partnered stores/fulfillment centers",
+        step: "01",
+      },
+      {
+        icon: Zap,
+        title: "Autonomous Dispatch",
+        description: "Our AI assigns the fastest Titan X1 drone from the nearest hub",
+        step: "02",
+      },
+      {
+        icon: MapPin,
+        title: "Real-Time Tracking",
+        description: "Watch your order fly in live GPS view on the app",
+        step: "03",
+      },
+      {
+        icon: Package,
+        title: "Nearest Pod",
+        description: "Drone lands autonomously in your nearest pod (home or street). Enter OTP to collect your product.",
+        step: "04",
+      },
+      {
+        icon: CheckCircle,
+        title: "Instant Confirmation",
+        description: "Get notified, sign digitally, and collect your items from the pod.",
+        step: "05",
+      },
+    ];
 
   const benefits = [
     {
