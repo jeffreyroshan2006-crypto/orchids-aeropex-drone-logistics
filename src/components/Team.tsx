@@ -3,16 +3,12 @@
 import { Card } from "./ui/card";
 
 export default function Team() {
-  const team = [
-    {
-      name: "JEFFREY ROSHAN S",
-      role: "Founder & CEO",
-    },
-    {
-      name: "NAREN.P",
-      role: "Co-Founder & CTO",
-    },
-  ];
+    const team = [
+      {
+        name: "JEFFREY ROSHAN S",
+        role: "Founder & CEO",
+      },
+    ];
 
   return (
     <section id="team" className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
