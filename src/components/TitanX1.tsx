@@ -92,16 +92,16 @@ export default function TitanX1() {
     "Modular payload system for versatile cargo types",
   ];
 
-  const agriFeatures = [
-    "Heavy-lift hexacopter platform with Titan X1 chassis (carbon fiber arms, CNC aluminum hub)",
-    "High-torque Hobbywing motors for stable flight with full tank load",
-    "Multinozzle precision spray system with drift minimization",
-    "Autonomous GPS-mapped flight planning with AI terrain-following",
-    "Variable-rate spray control and sectional shut-off for eco-friendly operation",
-    "Real-time telemetry, live remote monitoring, and digital field analytics",
-    "Hot-swappable battery system and quick-attach tank for nonstop operations",
-    "Real-time safety: obstacle avoidance, emergency cut-off, LED strobes",
-  ];
+    const agriFeatures = [
+      "Heavy-lift hexacopter platform built from the robust Titan X1 chassis (carbon fiber arms, CNC aluminum hub, high-torque Hobbywing motors)",
+      "20L* high-capacity swappable sprayer tank and multinozzle precision spray system",
+      "Autonomous GPS-mapped flight planning and AI terrain-following for accurate, uniform spraying",
+      "Variable-rate spray control, drift minimization, and sectional shut-off for eco-friendly operation",
+      "Rugged all-weather body, dust and water resistant, optimized for Indian farm conditions",
+      "Real-time telemetry, live remote monitoring, and digital field analytics via mobile/web app",
+      "Hot-swappable battery system and quick-attach tank for rapid refilling and nonstop operations",
+      "Real-time safety features: obstacle avoidance, emergency cut-off, LED strobes for low-light",
+    ];
 
   return (
     <section id="titan-x1" className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
