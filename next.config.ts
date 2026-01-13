@@ -16,8 +16,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
-  typescript: {
+ typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
