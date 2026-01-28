@@ -6,7 +6,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Aeropex Technologies | Revolutionary Drone Logistics in India",
-  description: "Building the future of autonomous drone logistics with the Titan X1 hexacopter and Flyzonow rapid delivery service across India.",
+  description: "Building the future of autonomous drone logistics with the Titan X1 hexacopter and Flyzo rapid delivery service across India.",
 };
 
 export default function RootLayout({

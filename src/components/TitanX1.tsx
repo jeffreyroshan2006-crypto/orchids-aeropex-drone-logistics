@@ -1,341 +1,219 @@
 "use client";
 
 import Image from "next/image";
-import { Card } from "./ui/card";
-import { Battery, Gauge, Weight, Wind, Cpu, Shield, Droplets, Map, Zap, CloudRain } from "lucide-react";
+import { Battery, Gauge, Weight, Wind, Cpu, Shield, Droplets, Map, Zap, CloudRain, CheckCircle2, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function TitanX1() {
   const titanSpecs = [
-    {
-      icon: Weight,
-      label: "Payload Capacity",
-      value: "50kg+",
-      description: "Heavy-lift capability for diverse cargo",
-    },
-    {
-      icon: Gauge,
-      label: "Max Range",
-      value: "200+km",
-      description: "Extended coverage for remote deliveries",
-    },
-    {
-      icon: Battery,
-      label: "Flight Time",
-      value: "2.5-3.5Hr",
-      description: "Varies with payload",
-    },
-    {
-      icon: Wind,
-      label: "Max Speed",
-      value: "80 km/h",
-      description: "Fast and reliable transport",
-    },
-    {
-      icon: Cpu,
-      label: "Autonomous AI",
-      value: "Level 4",
-      description: "Uses AI supercomputer for high level redundancy",
-    },
-    {
-      icon: Shield,
-      label: "Safety Rating",
-      value: "5-Star",
-      description: "Redundant systems & fail-safes",
-    },
+    { icon: Weight, label: "Payload Capacity", value: "50kg+", desc: "Heavy-lift capability" },
+    { icon: Gauge, label: "Max Range", value: "90km", desc: "Extended coverage" },
+    { icon: Battery, label: "Flight Time", value: "1.5Hr", desc: "Varies with payload" },
+    { icon: Wind, label: "Max Speed", value: "80 km/h", desc: "Fast and reliable" },
+    { icon: Cpu, label: "Autonomous AI", value: "Level 4", desc: "AI supercomputer" },
+    { icon: Shield, label: "Safety Rating", value: "5-Star", desc: "Redundant systems" },
   ];
 
   const agriSpecs = [
-    {
-      icon: Droplets,
-      label: "Tank Capacity",
-      value: "20-50max",
-      description: "High-capacity swappable sprayer tank",
-    },
-    {
-      icon: Gauge,
-      label: "Max Range",
-      value: "200+km",
-      description: "Extended farm coverage",
-    },
-    {
-      icon: Battery,
-      label: "Flight Time",
-      value: "2.5-3.5Hr",
-      description: "Hot-swappable battery system",
-    },
-    {
-      icon: Map,
-      label: "GPS Mapping",
-      value: "Autonomous",
-      description: "AI terrain-following for precise spraying",
-    },
-    {
-      icon: CloudRain,
-      label: "Weather Resistant",
-      value: "IP67",
-      description: "Dust and water resistant for Indian farms",
-    },
-    {
-      icon: Zap,
-      label: "Spray Control",
-      value: "Variable-rate",
-      description: "Eco-friendly sectional shut-off",
-    },
+    { icon: Droplets, label: "Tank Capacity", value: "20-50L", desc: "Swappable sprayer" },
+    { icon: Gauge, label: "Max Range", value: "90km", desc: "Extended farm coverage" },
+    { icon: Battery, label: "Flight Time", value: "1.5Hr", desc: "Hot-swappable system" },
+    { icon: Map, label: "GPS Mapping", value: "Auto", desc: "Terrain-following" },
+    { icon: CloudRain, label: "Weather", value: "IP67", desc: "Dust & water resistant" },
+    { icon: Zap, label: "Spray Control", value: "Variable", desc: "Eco-friendly" },
   ];
-
-  const titanFeatures = [
-    "Hexacopter design for enhanced stability and redundancy",
-    "AI-powered autonomous flight with real-time route optimization",
-    "Weather-resistant construction for all-season operations",
-    "Advanced GPS and sensor fusion for precision landing",
-    "Remote monitoring and control capabilities",
-    "Modular payload system for versatile cargo types",
-  ];
-
-    const agriFeatures = [
-      "Heavy-lift hexacopter platform built from the robust Titan X1 chassis (carbon fiber arms, CNC aluminum hub, high-torque Hobbywing motors)",
-      "20L* high-capacity swappable sprayer tank and multinozzle precision spray system",
-      "Autonomous GPS-mapped flight planning and AI terrain-following for accurate, uniform spraying",
-      "Variable-rate spray control, drift minimization, and sectional shut-off for eco-friendly operation",
-      "Rugged all-weather body, dust and water resistant, optimized for Indian farm conditions",
-      "Real-time telemetry, live remote monitoring, and digital field analytics via mobile/web app",
-      "Hot-swappable battery system and quick-attach tank for rapid refilling and nonstop operations",
-      "Real-time safety features: obstacle avoidance, emergency cut-off, LED strobes for low-light",
-    ];
 
   return (
-    <section id="titan-x1" className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="titan-x1" className="py-32 md:py-60 bg-[#020617] relative overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 right-0 w-[60rem] h-[60rem] bg-brand-blue/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-[#FA8100]/10 rounded-full">
-            <span className="text-[#FA8100] text-sm font-semibold">Flagship Products</span>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-40"
+        >
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1 glass-dark rounded-full border border-white/5">
+            <span className="text-brand-orange text-[10px] font-bold uppercase tracking-[0.3em]">
+              The Fleet • Engineering Excellence
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Drone Fleet
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-10 tracking-tighter leading-tight">
+            FORGING THE <br />
+            <span className="text-gradient-orange italic">UNSTOPPABLE.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Revolutionary heavy-lift autonomous drones, engineered for delivery and agricultural challenges across India's diverse terrain.
+          <p className="text-xl md:text-2xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto">
+            Our flagship autonomous platforms are engineered to dominate the most demanding logistics 
+            and agricultural landscapes across the subcontinent.
           </p>
-        </div>
+        </motion.div>
 
         {/* Titan X1 Section */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Titan X1 Hexacopter
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Heavy-lift logistics drone for cargo delivery and remote area transport
-            </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-16 rounded-3xl overflow-hidden shadow-2xl">
-            <div className="relative aspect-[16/9] bg-gradient-to-br from-[#2139A0]/10 to-[#FA8100]/10">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=8000&height=8000&resize=contain"
-                alt="Titan X1 Hexacopter"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Technical Specs Grid */}
-          <div className="mb-16">
-            <h4 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Technical Specifications
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {titanSpecs.map((spec, index) => (
-                <Card
-                  key={index}
-                  className="p-6 border-2 hover:border-[#2139A0] transition-all hover:shadow-lg group"
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#2139A0]/10 group-hover:bg-[#2139A0] rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
-                      <spec.icon className="text-[#2139A0] group-hover:text-white transition-colors" size={24} />
+        <div className="mb-60">
+          <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px w-12 bg-brand-orange/40" />
+                <span className="text-brand-orange font-bold text-xs uppercase tracking-[0.3em]">Flagship Logistics</span>
+              </div>
+              <h3 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">TITAN X1 <span className="font-light opacity-30">HEXACOPTER</span></h3>
+              <p className="text-white/40 text-xl mb-12 leading-relaxed font-light">
+                A powerhouse of autonomous flight. The Titan X1 is the definitive answer to heavy-lift 
+                logistics, combining industrial-grade durability with surgical precision.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-8 mb-12">
+                {[
+                  "Full Carbon Fiber Chassis",
+                  "AI Flight Optimization",
+                  "Multi-Sensor Fusion",
+                  "Modular Cargo Interface",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 text-white/60 group">
+                    <div className="w-6 h-6 rounded-full glass flex items-center justify-center group-hover:bg-brand-orange/20 transition-colors">
+                      <CheckCircle2 size={12} className="text-brand-orange" />
                     </div>
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">{spec.label}</div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">{spec.value}</div>
-                      <div className="text-sm text-gray-500">{spec.description}</div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Features & Use Case */}
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Key Features */}
-            <div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h4>
-              <div className="space-y-4">
-                {titanFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-[#FA8100] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-gray-700">{feature}</p>
+                    <span className="font-medium text-sm tracking-wide">{item}</span>
                   </div>
                 ))}
               </div>
+              <motion.button 
+                whileHover={{ gap: "2rem" }}
+                className="flex items-center gap-4 text-white font-bold text-lg border-b border-white/10 pb-4 hover:border-brand-orange/40 transition-all w-full"
+              >
+                Technical Specifications <ChevronRight className="text-brand-orange" />
+              </motion.button>
+            </motion.div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-[#2139A0]/5 to-[#FA8100]/5 rounded-2xl">
-                <h5 className="text-xl font-bold text-gray-900 mb-3">Perfect For:</h5>
-                <ul className="space-y-2 text-gray-700">
-                  <li>✈️ Agricultural supply delivery</li>
-                  <li>🏥 Medical emergency transport</li>
-                  <li>📦 E-commerce last-mile delivery</li>
-                  <li>🏔️ Remote area logistics</li>
-                  <li>🌾 Farm-to-market connectivity</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Mission Image */}
-            <div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-6">In Action</h4>
-              <div className="rounded-2xl overflow-hidden shadow-xl mb-4">
-                <div className="relative aspect-square">
-                  <Image
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Aeronova_Titan_X1_Agricultural_Mission_-_Delivering_Seeds_and_Inputs_to_Remote_Farms-1763211143910.png?width=8000&height=8000&resize=contain"
-                    alt="Titan X1 delivering agricultural supplies"
-                    fill
-                    className="object-cover"
-                  />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
+              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="relative aspect-[4/3] rounded-[4rem] overflow-hidden glass shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-white/10 group"
+            >
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=8000&height=8000&resize=contain"
+                alt="Titan X1"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-10 left-10 glass-dark px-8 py-4 rounded-3xl border border-white/10">
+                <div className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 font-bold">In-Flight Status</div>
+                <div className="text-brand-orange font-bold text-sm flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                  Live Deployment Active
                 </div>
               </div>
-              <p className="text-gray-600 leading-relaxed">
-                The Titan X1 in an agricultural mission, delivering seeds and farming inputs to remote villages. Our drones bridge the gap between suppliers and farmers, ensuring timely delivery of critical resources.
-              </p>
-            </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {titanSpecs.map((spec, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="glass-dark p-8 rounded-[2.5rem] border border-white/5 hover:bg-white/[0.03] transition-all duration-500"
+              >
+                <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-6 border border-white/5">
+                  <spec.icon className="text-white/40" size={24} />
+                </div>
+                <div className="text-2xl font-bold text-white mb-2 tracking-tight">{spec.value}</div>
+                <div className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold leading-tight">{spec.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t-2 border-gray-200 my-20"></div>
-
         {/* Agri X1 Section */}
-        <div>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Aeropex Agri X1
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Advanced agricultural drone for precision spraying and crop management
-            </p>
-          </div>
-
-          {/* Hero Image */}
-          <div className="mb-16 rounded-3xl overflow-hidden shadow-2xl">
-            <div className="relative aspect-[16/9] bg-gradient-to-br from-green-500/10 to-[#FA8100]/10">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763214336573.png?width=8000&height=8000&resize=contain"
-                alt="Aeropex Agri X1 Agricultural Drone"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Technical Specs Grid */}
-          <div className="mb-16">
-            <h4 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Technical Specifications
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {agriSpecs.map((spec, index) => (
-                <Card
-                  key={index}
-                  className="p-6 border-2 hover:border-green-600 transition-all hover:shadow-lg group"
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-green-600/10 group-hover:bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors">
-                      <spec.icon className="text-green-600 group-hover:text-white transition-colors" size={24} />
+        <div className="relative">
+          <div className="grid lg:grid-cols-2 gap-24 items-center mb-32 lg:flex-row-reverse">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="lg:order-2"
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px w-12 bg-green-500/40" />
+                <span className="text-green-500 font-bold text-xs uppercase tracking-[0.3em]">Precision Agriculture</span>
+              </div>
+              <h3 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">AGRI X1 <span className="font-light opacity-30">PRECISION</span></h3>
+              <p className="text-white/40 text-xl mb-12 leading-relaxed font-light">
+                Redefining the agricultural backbone of India. The Agri X1 delivers autonomous spraying 
+                and crop intelligence that maximizes yield while minimizing resource waste.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-8 mb-12">
+                {[
+                  "50L Swappable Sprayer",
+                  "Terrain-Following AI",
+                  "Variable-Rate Controls",
+                  "Hot-Swappable Energy",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 text-white/60 group">
+                    <div className="w-6 h-6 rounded-full glass flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+                      <CheckCircle2 size={12} className="text-green-500" />
                     </div>
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">{spec.label}</div>
-                      <div className="text-2xl font-bold text-gray-900 mb-1">{spec.value}</div>
-                      <div className="text-sm text-gray-500">{spec.description}</div>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Features & Applications */}
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Key Features */}
-            <div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-6">Advanced Features</h4>
-              <div className="space-y-4">
-                {agriFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg
-                        className="w-4 h-4 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-gray-700">{feature}</p>
+                    <span className="font-medium text-sm tracking-wide">{item}</span>
                   </div>
                 ))}
               </div>
-            </div>
+              <motion.button 
+                whileHover={{ gap: "2rem" }}
+                className="flex items-center gap-4 text-white font-bold text-lg border-b border-white/10 pb-4 hover:border-green-500/40 transition-all w-full"
+              >
+                Agricultural Impact Report <ChevronRight className="text-green-500" />
+              </motion.button>
+            </motion.div>
 
-            {/* Smart Applications */}
-            <div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-6">Smart Applications</h4>
-              <div className="space-y-6">
-                <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border-2 border-green-200">
-                  <h5 className="text-lg font-bold text-gray-900 mb-3">Precision Agriculture</h5>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>🌾 Pesticide/fertilizer/herbicide spraying</li>
-                      <li>🌱 Orchard & row crop support</li>
-                      <li>📊 Crop health monitoring (optional sensor)</li>
-                    </ul>
-                </div>
-
-                <div className="p-6 bg-gradient-to-br from-[#2139A0]/5 to-[#FA8100]/5 rounded-2xl">
-                  <h5 className="text-lg font-bold text-gray-900 mb-3">Built for Indian Farms</h5>
-                  <p className="text-gray-700 mb-3">
-                    Designed specifically for Indian agricultural conditions with rugged all-weather construction and optimized for diverse terrain.
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✅ Dust & water resistant (IP67)</li>
-                    <li>✅ Real-time field analytics via mobile/web</li>
-                    <li>✅ Quick refilling for nonstop operations</li>
-                    <li>✅ Eco-friendly drift minimization</li>
-                  </ul>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotateY: -20 }}
+              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="relative aspect-[4/3] rounded-[4rem] overflow-hidden glass shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-white/10 lg:order-1 group"
+            >
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763214336573.png?width=8000&height=8000&resize=contain"
+                alt="Agri X1"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+              <div className="absolute top-10 right-10 glass-dark px-8 py-4 rounded-3xl border border-white/10">
+                <div className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 font-bold">Field Testing</div>
+                <div className="text-green-500 font-bold text-sm flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  Eco-Impact: Optimized
                 </div>
               </div>
-            </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {agriSpecs.map((spec, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="glass-dark p-8 rounded-[2.5rem] border border-white/5 hover:bg-white/[0.03] transition-all duration-500"
+              >
+                <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-6 border border-white/5">
+                  <spec.icon className="text-white/40" size={24} />
+                </div>
+                <div className="text-2xl font-bold text-white mb-2 tracking-tight">{spec.value}</div>
+                <div className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold leading-tight">{spec.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

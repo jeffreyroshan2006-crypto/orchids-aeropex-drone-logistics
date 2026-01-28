@@ -1,289 +1,217 @@
 "use client";
 
-import { Card } from "./ui/card";
-import { ShoppingBag, Pill, Package, Zap, Clock, Leaf, MapPin, Smartphone, CheckCircle, Shield } from "lucide-react";
+import { ShoppingBag, Pill, Package, Zap, Clock, Leaf, MapPin, Smartphone, CheckCircle, Shield, ChevronRight, Apple, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Flyzo() {
-    const deliverySteps = [
-      {
-        icon: Smartphone,
-        title: "Browse & Order",
-        description: "Open the Flyzo app, select items from partnered stores/fulfillment centers",
-        step: "01",
-      },
-      {
-        icon: Zap,
-        title: "Autonomous Dispatch",
-        description: "Our AI assigns the fastest Titan X1 drone from the nearest hub",
-        step: "02",
-      },
-      {
-        icon: MapPin,
-        title: "Real-Time Tracking",
-        description: "Watch your order fly in live GPS view on the app",
-        step: "03",
-      },
-      {
-        icon: Package,
-        title: "Nearest Pod",
-        description: "Drone lands autonomously in your nearest pod (home or street). Enter OTP to collect your product.",
-        step: "04",
-      },
-      {
-        icon: CheckCircle,
-        title: "Instant Confirmation",
-        description: "Get notified, sign digitally, and collect your items from the pod.",
-        step: "05",
-      },
-    ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
 
-  const benefits = [
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
+  const deliverySteps = [
     {
-      icon: Clock,
-      title: "Ultra-Fast",
-      description: "Delivery in 8–20 minutes (intra-city) vs 30–60 min traditional services",
-      color: "from-blue-500 to-cyan-600",
+      icon: Smartphone,
+      title: "Order",
+      description: "Select items from elite partner hubs through our neural-link app.",
+      step: "01",
     },
     {
-      icon: Leaf,
-      title: "Eco-Friendly",
-      description: "Zero-emission autonomous drones, zero traffic congestion",
-      color: "from-green-500 to-emerald-600",
+      icon: Zap,
+      title: "Dispatch",
+      description: "AI optimizes the fastest Titan route for immediate takeoff.",
+      step: "02",
     },
     {
-      icon: Shield,
-      title: "24/7 Operation",
-      description: "Available day & night, rain or shine (weather permitting)",
-      color: "from-purple-500 to-pink-600",
+      icon: MapPin,
+      title: "Track",
+      description: "Live 4K telemetry feed directly to your mobile device.",
+      step: "03",
+    },
+    {
+      icon: Package,
+      title: "Pod Drop",
+      description: "Precision landing at your nearest secure Aero-Pod.",
+      step: "04",
+    },
+    {
+      icon: CheckCircle,
+      title: "Collect",
+      description: "Secure OTP access. Instant physical confirmation.",
+      step: "05",
     },
   ];
 
   const categories = [
     {
-      title: "Food & Groceries",
-      description: "Fresh, fast delivery in 8–15 minutes",
-      emoji: "🍔",
-      color: "from-orange-500 to-red-600",
+      title: "Elite Dining",
+      description: "Gourmet deliveries in under 12 minutes.",
+      icon: Apple,
+      color: "from-orange-500/20 to-brand-orange/40",
     },
     {
-      title: "Medicines & Medical",
-      description: "Critical medicines within the hour",
-      emoji: "💊",
-      color: "from-red-500 to-pink-600",
+      title: "Bio-Medical",
+      description: "Critical supplies within the golden hour.",
+      icon: Pill,
+      color: "from-red-500/20 to-brand-blue/40",
     },
     {
-      title: "E-commerce Products",
-      description: "Books, electronics, fashion delivered fast",
-      emoji: "📦",
-      color: "from-blue-500 to-indigo-600",
-    },
-    {
-      title: "Logistics & Parcels",
-      description: "B2B same-day delivery solutions",
-      emoji: "🚚",
-      color: "from-gray-600 to-gray-800",
-    },
-    {
-      title: "Emergency Essentials",
-      description: "Water, batteries, emergency kits on demand",
-      emoji: "⚡",
-      color: "from-yellow-500 to-orange-600",
-    },
-  ];
-
-  const whyFlyzo = [
-    {
-      icon: Zap,
-      title: "Lightning Speed",
-      stat: "8-20 min",
-      description: "Average delivery time across metros to tier-2 cities",
-    },
-    {
-      icon: Leaf,
-      title: "Zero Emissions",
-      stat: "100%",
-      description: "Electric autonomous drones with no carbon footprint",
-    },
-    {
-      icon: Package,
-      title: "Heavy Payload",
-      stat: "45kg",
-      description: "Titan X1 capacity for multiple orders in one trip",
-    },
-    {
-      icon: MapPin,
-      title: "Wide Coverage",
-      stat: "150km",
-      description: "Range connecting metros to rural areas seamlessly",
+      title: "Cyber-Store",
+      description: "Next-gen electronics delivered instantly.",
+      icon: Smartphone,
+      color: "from-blue-500/20 to-cyan-400/40",
     },
   ];
 
   return (
-    <section id="flyzo" className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="flyzo" className="py-32 md:py-60 bg-[#020617] relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 bg-mesh opacity-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-[#FA8100]/10 rounded-full">
-            <span className="text-[#FA8100] text-sm font-semibold">⚡ Instant Delivery Platform</span>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-40"
+        >
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1 glass-dark rounded-full border border-white/5">
+            <Zap size={14} className="text-brand-orange" />
+            <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em]">
+              The Flyzo Ecosystem • Instant Logistics
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Flyzo – The Future of Instant Delivery
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-10 tracking-tighter leading-tight">
+            THE PULSE OF <br />
+            <span className="text-gradient-orange italic">INSTANT.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Revolutionary on-demand aerial delivery platform bringing ultra-fast, autonomous drone logistics to every corner of India. Like Zepto, Zomato, and Blinkit rolled into one—but powered by autonomous Titan X1 heavy-lift drones.
+          <p className="text-xl md:text-2xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto">
+            Flyzo is more than an app; it's the interface for India's first autonomous aerial 
+            delivery network. Experience a world where distance is irrelevant.
           </p>
-        </div>
+        </motion.div>
 
-        {/* What You Can Order */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            What You Can Order
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all cursor-pointer group border-2 border-transparent hover:border-[#FA8100]"
-              >
-                <div className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform`}>
-                  {category.emoji}
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-40">
+          {categories.map((cat, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -15 }}
+              className={`glass-dark p-12 rounded-[3.5rem] border border-white/5 relative overflow-hidden group`}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              <div className="relative z-10">
+                <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
+                  <cat.icon className="text-white/60" size={32} />
                 </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">{category.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{category.description}</p>
+                <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">{cat.title}</h3>
+                <p className="text-white/30 text-lg font-light leading-relaxed mb-10">{cat.description}</p>
+                <div className="flex items-center gap-2 text-brand-orange font-bold text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                  Explore <ChevronRight size={16} />
+                </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* How It Works */}
-        <div className="mb-20">
-            <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              How It Works
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {deliverySteps.map((step, index) => (
-              <div key={index} className="relative">
-                <Card className="p-6 h-full border-2 hover:border-[#2139A0] transition-all hover:shadow-lg group">
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#2139A0] to-[#FA8100] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+        {/* Interactive Delivery Flow */}
+        <div className="mb-60">
+          <h3 className="text-4xl font-bold text-white mb-24 text-center tracking-tighter">The Journey of an Order</h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {deliverySteps.map((step, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative text-center group"
+              >
+                <div className="w-20 h-20 glass rounded-[2rem] flex items-center justify-center mx-auto mb-10 relative z-10 group-hover:bg-brand-orange/20 transition-all duration-500 border border-white/10 group-hover:scale-110">
+                  <step.icon className="text-white/60 group-hover:text-white" size={28} />
+                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-brand-orange text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-lg">
                     {step.step}
                   </div>
-                  <div className="w-14 h-14 bg-[#2139A0]/10 group-hover:bg-[#2139A0] rounded-xl flex items-center justify-center mb-4 mt-2 transition-colors">
-                    <step.icon className="text-[#2139A0] group-hover:text-white transition-colors" size={28} />
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                </Card>
-                {/* Connector Arrow */}
-                {index < deliverySteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <div className="text-[#FA8100] text-2xl">→</div>
-                  </div>
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4 tracking-tight">{step.title}</h4>
+                <p className="text-white/30 text-sm font-light leading-relaxed">{step.description}</p>
+                
+                {i < deliverySteps.length - 1 && (
+                  <div className="hidden md:block absolute top-10 left-[calc(50%+4rem)] w-[calc(100%-8rem)] h-px bg-gradient-to-r from-brand-orange/40 to-transparent" />
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Why Flyzo Stats */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-            Why Flyzo?
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyFlyzo.map((item, index) => (
-              <Card key={index} className="p-8 text-center border-2 hover:border-[#FA8100] transition-all hover:shadow-lg group">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#2139A0] to-[#FA8100] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="text-white" size={32} />
-                </div>
-                <div className="text-4xl font-bold text-[#2139A0] mb-2">{item.stat}</div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-              </Card>
-            ))}
-          </div>
+        {/* Feature Cards / Benefits */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-60">
+          {[
+            { title: "Ultra-Fast Telemetry", stat: "8-20m", label: "Delivery Speed", color: "text-brand-orange" },
+            { title: "Sustainable Sky", stat: "Zero", label: "Carbon Footprint", color: "text-green-500" },
+            { title: "Hyper-Connect", stat: "90km", label: "Operating Radius", color: "text-brand-blue" },
+          ].map((benefit, i) => (
+            <motion.div 
+              key={i} 
+              whileHover={{ scale: 1.05 }}
+              className="glass-dark p-12 rounded-[3.5rem] border border-white/5 text-center group"
+            >
+              <div className="text-[10px] text-white/30 uppercase tracking-[0.4em] mb-4 font-bold">{benefit.title}</div>
+              <div className={`text-7xl font-bold mb-4 tracking-tighter ${benefit.color} group-hover:scale-110 transition-transform duration-500`}>
+                {benefit.stat}
+              </div>
+              <div className="text-white font-bold text-lg tracking-tight">{benefit.label}</div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Key Benefits */}
-        <div className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-90 group-hover:opacity-100 transition-opacity`} />
-                <div className="relative p-8 text-white">
-                  <benefit.icon className="mb-4" size={40} />
-                  <h4 className="text-2xl font-bold mb-3">{benefit.title}</h4>
-                  <p className="leading-relaxed text-white/90">{benefit.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Powered by Titan X1 */}
-        <div className="bg-gradient-to-br from-[#2139A0] to-[#1a2d7a] rounded-3xl p-8 md:p-12 text-white mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-block mb-4 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
-                <span className="text-white text-sm font-semibold">🚁 Powered by Titan X1</span>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                The Backbone of India's Next-Gen Logistics
-              </h3>
-              <p className="text-lg text-white/90 mb-6 leading-relaxed">
-                Heavy-lift autonomous hexacopter drones with up to 45kg payload capacity, 150km range, and redundant safety systems—ensuring your deliveries are fast, safe, and reliable.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="text-[#FA8100] flex-shrink-0" size={24} />
-                  <span>Autonomous AI-powered navigation</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="text-[#FA8100] flex-shrink-0" size={24} />
-                  <span>Redundant safety systems for fail-safe operations</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="text-[#FA8100] flex-shrink-0" size={24} />
-                  <span>All-weather capability with real-time monitoring</span>
-                </li>
-              </ul>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=800&height=800&resize=contain"
-                  alt="Titan X1 Drone"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-[#FA8100] to-[#ff9933] rounded-3xl p-8 md:p-12 text-white shadow-2xl">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Download Flyzo Today
-            </h3>
-            <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
-              The future of delivery has taken flight. Experience ultra-fast, eco-friendly, and affordable delivery across India.
+        {/* App Download CTA - Luxurious Look */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="glass-dark rounded-[5rem] p-12 md:p-24 relative overflow-hidden border border-white/5"
+        >
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
+          
+          <div className="relative z-10 text-center">
+            <h3 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tighter">THE FUTURE IN <br /> YOUR POCKET.</h3>
+            <p className="text-xl md:text-2xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto mb-16">
+              Download the Flyzo application and join the elite circle of autonomous logistics. 
+              Available on all major platforms.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                className="px-8 py-4 bg-white text-[#FA8100] rounded-xl font-semibold hover:bg-gray-100 transition-colors inline-block shadow-lg"
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="flex items-center gap-4 bg-white text-black px-10 py-6 rounded-full font-bold text-lg hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] transition-all"
               >
-                Get Started Now
-              </a>
-              <a
-                href="#contact"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-xl font-semibold hover:bg-white/20 transition-colors inline-block"
+                <Apple size={28} /> App Store
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="flex items-center gap-4 glass text-white px-10 py-6 rounded-full font-bold text-lg border-white/10 hover:bg-white/5 transition-all"
               >
-                Request Partnership
-              </a>
+                <Play className="fill-white" size={28} /> Play Store
+              </motion.button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

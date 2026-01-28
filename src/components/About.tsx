@@ -1,96 +1,154 @@
 "use client";
 
-import { Target, Eye, Zap } from "lucide-react";
-import { Card } from "./ui/card";
+import { Target, Eye, Zap, ArrowRight, ShieldCheck, Globe, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
-    <section id="about" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-32 md:py-60 bg-[#020617] relative overflow-hidden">
+      {/* Abstract Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-brand-orange/5 rounded-full blur-[180px] pointer-events-none opacity-50" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 bg-[#2139A0]/10 rounded-full">
-            <span className="text-[#2139A0] text-sm font-semibold">About Aeropex</span>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="max-w-4xl mb-32"
+        >
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1 glass-dark rounded-full border border-white/5">
+            <Globe size={14} className="text-brand-orange" />
+            <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em]">
+              Global Vision • Indian Roots
+            </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Transforming Indian Logistics
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-10 tracking-tighter leading-tight">
+            REDEFINING THE <br />
+            <span className="text-gradient-orange italic">POSSIBLE.</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We're on a mission to revolutionize how goods are transported across India, making deliveries faster, more efficient, and accessible to everyone.
-          </p>
-        </div>
-
-        {/* Mission, Vision, Values */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <Card className="p-8 border-2 hover:border-[#2139A0] transition-all hover:shadow-lg">
-            <div className="w-14 h-14 bg-[#2139A0] rounded-xl flex items-center justify-center mb-6">
-              <Target className="text-white" size={28} />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
-              To democratize logistics in India by deploying autonomous heavy-lift drones that connect remote villages to urban centers, ensuring critical supplies reach everyone efficiently.
+            <p className="text-xl md:text-2xl text-white leading-relaxed font-light max-w-2xl">
+              Aeropex Technologies isn't just a drone company. We are architects of a new era in logistics, 
+              dissolving the barriers of distance through autonomous flight.
             </p>
-          </Card>
+        </motion.div>
 
-          <Card className="p-8 border-2 hover:border-[#FA8100] transition-all hover:shadow-lg">
-            <div className="w-14 h-14 bg-[#FA8100] rounded-xl flex items-center justify-center mb-6">
-              <Eye className="text-white" size={28} />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-            <p className="text-gray-600 leading-relaxed">
-              To become India's leading drone logistics provider, creating a network of autonomous delivery systems that make distance irrelevant and improve lives nationwide.
-            </p>
-          </Card>
+        {/* Core Pillars */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-40"
+        >
+          {[
+            {
+              title: "Autonomous Intelligence",
+              icon: Cpu,
+              desc: "Deep-learning flight systems that adapt to terrain, weather, and dynamic obstacles in real-time.",
+              accent: "group-hover:text-brand-orange",
+            },
+            {
+              title: "Uncompromising Power",
+              icon: Zap,
+              desc: "Heavy-lift engineering designed to transport 50kg+ over vast distances without hesitation.",
+              accent: "group-hover:text-brand-blue",
+            },
+            {
+              title: "Digital Sovereignty",
+              icon: ShieldCheck,
+              desc: "Fully encrypted mission control and data security protocols ensuring every flight is protected.",
+              accent: "group-hover:text-brand-orange",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              whileHover={{ y: -15 }}
+              className="glass-dark p-12 rounded-[3rem] border border-white/5 group transition-all duration-500 hover:bg-white/[0.03]"
+            >
+              <div className="w-16 h-16 glass rounded-[1.5rem] flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500 border border-white/10">
+                <item.icon className={`text-white/60 ${item.accent} transition-colors duration-500`} size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">{item.title}</h3>
+              <p className="text-white/30 leading-relaxed font-light text-lg">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-          <Card className="p-8 border-2 hover:border-[#2139A0] transition-all hover:shadow-lg">
-            <div className="w-14 h-14 bg-[#2139A0] rounded-xl flex items-center justify-center mb-6">
-              <Zap className="text-white" size={28} />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Values</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Innovation, reliability, and accessibility drive everything we do. We're committed to safety, sustainability, and empowering communities through cutting-edge technology.
-            </p>
-          </Card>
-        </div>
-
-        {/* Story Section */}
-        <div className="bg-gradient-to-br from-[#2139A0]/5 to-[#FA8100]/5 rounded-3xl p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Founder's Vision / Story */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+          className="glass-dark rounded-[4rem] p-12 md:p-24 relative overflow-hidden border border-white/5"
+        >
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] pointer-events-none" />
+          
+          <div className="grid md:grid-cols-2 gap-24 items-center relative z-10">
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h3>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+              <div className="text-brand-orange font-bold text-xs uppercase tracking-[0.4em] mb-8">Established 2025</div>
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-10 leading-tight">The Journey to 1,000 Villages</h3>
+                <div className="space-y-8 text-white leading-relaxed text-xl font-light">
+                  <p>
+                    Aeropex Technologies was founded with a singular, audacious goal: to ensure that no 
+                    community in India is ever too remote for essential supplies.
+                  </p>
                 <p>
-                  Founded in 2023, Aeropex Technologies emerged from a simple observation: millions of Indians in remote areas face challenges accessing essential goods due to poor infrastructure and long distances.
-                </p>
-                <p>
-                  Our team of aerospace engineers, AI specialists, and logistics experts came together to build a solution that would leapfrog traditional infrastructure limitations using autonomous drone technology.
-                </p>
-                <p>
-                  Today, with our flagship Titan X1 hexacopter and Flyzonow delivery service, we're making that vision a reality, delivering everything from medical supplies to agricultural inputs across India's diverse terrain.
+                  What started as a prototype in a Chennai lab has evolved into a sophisticated network 
+                  of autonomous aerial infrastructure, powered by the industry-leading Titan X1.
                 </p>
               </div>
+              <motion.div whileHover={{ x: 10 }} className="mt-14">
+                <a href="#contact" className="group inline-flex items-center gap-4 text-white font-bold text-lg hover:text-brand-orange transition-colors">
+                  Join the Mission 
+                  <span className="w-12 h-px bg-white/20 group-hover:bg-brand-orange/40 transition-colors" />
+                  <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
+                </a>
+              </motion.div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-6 rounded-2xl shadow-md">
-                <div className="text-4xl font-bold text-[#2139A0] mb-2">500+</div>
-                <div className="text-sm text-gray-600">Successful Deliveries</div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-md">
-                <div className="text-4xl font-bold text-[#FA8100] mb-2">50+</div>
-                <div className="text-sm text-gray-600">Villages Served</div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-md">
-                <div className="text-4xl font-bold text-[#2139A0] mb-2">98%</div>
-                <div className="text-sm text-gray-600">On-Time Rate</div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-md">
-                <div className="text-4xl font-bold text-[#FA8100] mb-2">24/7</div>
-                <div className="text-sm text-gray-600">Operations</div>
-              </div>
+            <div className="grid grid-cols-2 gap-8">
+              {[
+                { label: "Precision Rate", val: "99.8%", color: "text-white" },
+                { label: "Active Corridors", val: "24", color: "text-brand-orange" },
+                { label: "Uptime", val: "99.9%", color: "text-brand-orange" },
+                { label: "Payload Safety", val: "100%", color: "text-white" },
+              ].map((stat, i) => (
+                <div key={i} className="glass-dark p-10 rounded-[2.5rem] border border-white/5 hover:border-brand-orange/20 transition-all duration-500 text-center">
+                  <div className={`text-5xl font-bold mb-4 tracking-tighter ${stat.color}`}>{stat.val}</div>
+                  <div className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

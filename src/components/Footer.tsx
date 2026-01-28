@@ -1,24 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0f172a] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-[#2139A0] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-['Montserrat']">A</span>
-              </div>
+            {/* Company Info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white/10 bg-white p-1 shadow-lg">
+                    <Image
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/94c38cdf-ec40-40cb-b7ec-f1a0f7f0afa1/cropped_circle_image-1768118028682.png?width=8000&height=8000&resize=contain"
+                      alt="Aeropex Logo"
+                      fill
+                      className="object-contain"
+                    />
+                </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-white font-['Montserrat'] leading-tight">
-                  Aeropex
-                </span>
-                <span className="text-xs text-gray-400 leading-tight">Technologies</span>
+                  <span className="text-lg font-bold text-white font-['Montserrat'] leading-tight">
+                    Aeropex
+                  </span>
+                  <span className="text-xs text-white leading-tight">Technologies</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -82,13 +88,22 @@ export default function Footer() {
                   admin@aeropex.co
                 </a>
               </li>
-              <li className="flex items-start space-x-3 text-sm">
-                <MapPin size={18} className="text-[#FA8100] mt-0.5 flex-shrink-0" />
-                <span className="text-gray-400">
-                  Bangalore, Karnataka, India
-                </span>
-              </li>
-            </ul>
+                  <li className="flex items-start space-x-3 text-sm">
+                    <MapPin size={18} className="text-[#FA8100] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-400">
+                      Chennai, Tamil Nadu, India
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-3 text-sm">
+                    <Phone size={18} className="text-[#FA8100] mt-0.5 flex-shrink-0" />
+                    <a
+                      href="tel:+919444646750"
+                      className="text-gray-400 hover:text-[#FA8100] transition-colors"
+                    >
+                      +91 94446 46750
+                    </a>
+                  </li>
+              </ul>
 
             {/* Social Media */}
             <div className="mt-6">

@@ -2,94 +2,162 @@
 
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Zap, Shield, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617]"
     >
-      {/* Background Image */}
+      {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-mesh opacity-40" />
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay scale-110 animate-pulse"
           style={{
             backgroundImage:
               "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=8000&height=8000&resize=contain')",
           }}
         />
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2139A0]/90 via-[#2139A0]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/0 via-[#020617]/50 to-[#020617]" />
       </div>
+
+      {/* Floating Orbs */}
+      <motion.div 
+        animate={{ 
+          y: [0, -20, 0],
+          x: [0, 10, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none" 
+      />
+      <motion.div 
+        animate={{ 
+          y: [0, 20, 0],
+          x: [0, -10, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-1/4 right-1/4 w-[40rem] h-[40rem] bg-brand-blue/10 rounded-full blur-[150px] pointer-events-none" 
+      />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="max-w-3xl">
-          <div className="inline-block mb-4 px-4 py-2 bg-[#FA8100]/20 backdrop-blur-sm border border-[#FA8100]/30 rounded-full">
-            <span className="text-white text-sm font-semibold">
-              🚁 Revolutionizing Drone Logistics in India
-            </span>
-          </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-48 text-center"
+      >
+        <motion.div 
+          variants={itemVariants} 
+          className="inline-flex items-center gap-2 mb-10 px-6 py-2 glass-dark rounded-full border border-white/10 hover:border-brand-orange/50 transition-colors cursor-default"
+        >
+          <div className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
+          <span className="text-white/80 text-xs font-bold uppercase tracking-[0.2em]">
+            Autonomous Flight Infrastructure 2.0
+          </span>
+        </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            The Future of
-            <span className="block text-[#FA8100]">Fast, Reliable, Efficient Deliveries and Agricultural Logistics Drones</span>
-          </h1>
+        <motion.h1
+          variants={itemVariants}
+          className="text-6xl sm:text-8xl md:text-9xl font-bold text-white mb-10 leading-[0.9] tracking-tighter"
+        >
+          THE FUTURE OF <br />
+          <span className="text-gradient-orange italic">FLIGHT</span>
+        </motion.h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-            Aeropex Technologies is pioneering autonomous drone logistics with the Titan X1 hexacopter and Flyzo rapid delivery service, transforming how goods reach remote and urban areas across India.
-          </p>
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-2xl text-white mb-14 leading-relaxed max-w-3xl mx-auto font-light"
+          >
+          Aeropex Technologies is architecting the next generation of heavy-lift logistics. 
+          Bridging distance with autonomous intelligence and uncompromising power.
+        </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#FA8100] hover:bg-[#e07400] text-white font-semibold text-lg px-8 py-6 group"
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-brand-orange hover:bg-white hover:text-black text-white font-bold text-lg px-12 py-8 rounded-full shadow-[0_20px_40px_-15px_rgba(250,129,0,0.5)] group transition-all duration-500"
+          >
+            <Link href="#titan-x1">
+              Explore Fleet
+              <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={20} />
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="glass hover:bg-white/10 text-white border-white/10 font-bold text-lg px-12 py-8 rounded-full group transition-all duration-500"
+          >
+            <Link href="#flyzo">
+              <Play className="mr-3 fill-white" size={18} />
+              Flyzo Platform
+            </Link>
+          </Button>
+        </motion.div>
+
+        {/* Futuristic Stats Container */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-32 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto"
+        >
+          {[
+            { label: "Payload Power", value: "50kg+", icon: Zap, detail: "Industrial Grade" },
+            { label: "Operation Radius", value: "90km", icon: Shield, detail: "Encrypted Link" },
+            { label: "Delivery Speed", value: "8min", icon: Clock, detail: "Urban Average" },
+          ].map((stat, i) => (
+            <motion.div 
+              key={i} 
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="glass-dark p-8 rounded-[2.5rem] border border-white/5 relative group overflow-hidden"
             >
-              <Link href="#titan-x1">
-                Explore Titan X1
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </Link>
-            </Button>
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition-opacity">
+                <stat.icon size={80} />
+              </div>
+              <div className="relative z-10 text-left">
+                <div className="text-brand-orange font-bold text-[10px] uppercase tracking-[0.2em] mb-4">
+                  {stat.detail}
+                </div>
+                <div className="text-4xl font-bold text-white mb-2 tracking-tight">{stat.value}</div>
+                <div className="text-sm text-white/40 font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
 
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#2139A0] font-semibold text-lg px-8 py-6 group"
-            >
-              <Link href="#flyzo">
-                Learn About Flyzo
-                <Play className="ml-2" size={20} />
-              </Link>
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-3 gap-8">
-            <div className="text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">50kg+</div>
-              <div className="text-sm text-white/70">Payload Capacity</div>
-            </div>
-            <div className="text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">200km</div>
-              <div className="text-sm text-white/70">Max Range</div>
-            </div>
-            <div className="text-center sm:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">5-30min</div>
-              <div className="text-sm text-white/70">Avg Delivery</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/50 rounded-full" />
-        </div>
-      </div>
+      {/* Background Decor */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
     </section>
   );
 }
