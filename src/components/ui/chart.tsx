@@ -104,6 +104,7 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
+// @ts-expect-error - Type assertion needed for payload property
 function ChartTooltipContent({
   active,
   payload,
