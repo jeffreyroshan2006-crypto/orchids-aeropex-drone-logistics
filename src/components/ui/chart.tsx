@@ -104,6 +104,7 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
+// @ts-ignore
 function ChartTooltipContent({
   active,
   payload,
