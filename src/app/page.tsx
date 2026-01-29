@@ -9,6 +9,22 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
+        <div className="page-wrapper">
+          
+    {/* Background Video */}
+          <video
+            autoPlay
+            loop
+                      muted
+                                playsInline
+                                          className="background-video"
+                                                  >
+                                                    <source src="/titanx1 video.mp4" type="video/mp4" />
+                                                    Your browser does not support the video tag.
+                                                            </video>
+                                                            {/* Content overlay */}
+                                                            <div className="content-overlay">
+                                                      
     <div className="min-h-screen">
       <Navigation />
       <Hero />
@@ -19,5 +35,7 @@ export default function Home() {
       <Contact />
       <Footer />
     </div>
+        </div>
+              </div>
   );
 }
