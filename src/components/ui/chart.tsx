@@ -104,9 +104,9 @@ ${colorConfig
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
-// @ts-ignore
 function ChartTooltipContent({
   active,
+    // @ts-ignore
   payload,
   className,
   indicator = "dot",
