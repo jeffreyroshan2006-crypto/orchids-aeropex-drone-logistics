@@ -112,10 +112,12 @@ function ChartTooltipContent({
   indicator = "dot",
   hideLabel = false,
   hideIndicator = false,
+    // @ts-ignore
   label,
   labelFormatter,
   labelClassName,
   formatter,
+    // @ts-ignore
   color,
   nameKey,
   labelKey,
