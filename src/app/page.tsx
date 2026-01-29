@@ -19,8 +19,7 @@ export default function Home() {
                                 playsInline
                                           className="background-video"
                                                   >
-                                                    <source src="/titanx1 video.mp4" type="video/mp4" />
-                                                    Your browser does not support the video tag.
+        <source src="/orchids-aeropex-drone-logistics/titanx1%20video.mp4" type="video/mp4" />                                                    Your browser does not support the video tag.
                                                             </video>
                                                             {/* Content overlay */}
                                                             <div className="content-overlay">
