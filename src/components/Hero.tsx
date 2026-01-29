@@ -31,21 +31,8 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617]"
     >
-
-            {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/intro-video.mp4" type="video/mp4" />
-        <source src="/intro-video.webm" type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
       {/* Dynamic Background */}
-      {/*<div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-mesh opacity-40" />
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay scale-110 animate-pulse"
@@ -53,7 +40,7 @@ export default function Hero() {
             backgroundImage:
               "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=8000&height=8000&resize=contain')",
           }}
-        />*/}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/0 via-[#020617]/50 to-[#020617]" />
       </div>
 
