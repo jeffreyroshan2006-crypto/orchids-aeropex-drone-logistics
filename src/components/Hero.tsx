@@ -31,9 +31,9 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Dark overlay for video readability */}
-      <div className="absolute inset-0 z-0 bg-black/50" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#020617]/30 via-[#020617]/60 to-[#020617]" />
+      {/* Dark overlay for video readability - 55% video visibility */}
+      <div className="absolute inset-0 z-0 bg-black/45" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#020617]/20 via-[#020617]/40 to-[#020617]" />
 
       {/* Floating Orbs */}
       <motion.div 
@@ -74,18 +74,24 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-6xl sm:text-8xl md:text-9xl font-bold text-white mb-10 leading-[0.9] tracking-tighter"
+          className="text-5xl sm:text-7xl md:text-8xl font-bold text-white mb-6 leading-[0.9] tracking-tighter"
         >
-          THE FUTURE OF <br />
-          <span className="text-gradient-orange italic">FLIGHT</span>
+          <span className="text-gradient-orange italic">AEROPEX</span>
         </motion.h1>
+        <motion.div
+          variants={itemVariants}
+          className="text-2xl sm:text-3xl md:text-4xl font-light text-white/60 mb-10 tracking-[0.3em] uppercase"
+        >
+          TECHNOLOGIES
+        </motion.div>
 
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-2xl text-white mb-14 leading-relaxed max-w-3xl mx-auto font-light"
+            className="text-lg md:text-2xl text-white/80 mb-14 leading-relaxed max-w-3xl mx-auto font-light"
           >
-          Aeropex Technologies is architecting the next generation of heavy-lift logistics. 
-          Bridging distance with autonomous intelligence and uncompromising power.
+          Pioneering the future of autonomous aerial logistics with our flagship 
+          <span className="text-brand-orange font-semibold"> Titan X1</span> heavy-lift hexacopter and 
+          <span className="text-green-400 font-semibold"> Agri X1</span> precision agriculture drone.
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -95,7 +101,7 @@ export default function Hero() {
             className="bg-brand-orange hover:bg-white hover:text-black text-white font-bold text-lg px-12 py-8 rounded-full shadow-[0_20px_40px_-15px_rgba(250,129,0,0.5)] group transition-all duration-500"
           >
             <Link href="#titan-x1">
-              Explore Fleet
+              Titan X1
               <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" size={20} />
             </Link>
           </Button>
@@ -104,11 +110,11 @@ export default function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="glass hover:bg-white/10 text-white border-white/10 font-bold text-lg px-12 py-8 rounded-full group transition-all duration-500"
+            className="glass hover:bg-green-500/20 text-white border-green-500/30 font-bold text-lg px-12 py-8 rounded-full group transition-all duration-500"
           >
-            <Link href="#flyzo">
-              <Play className="mr-3 fill-white" size={18} />
-              Flyzo Platform
+            <Link href="#titan-x1">
+              <Play className="mr-3 fill-green-400" size={18} />
+              Agri X1
             </Link>
           </Button>
         </motion.div>

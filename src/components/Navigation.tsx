@@ -21,6 +21,7 @@ export default function Navigation() {
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Titan X1", href: "#titan-x1" },
+    { name: "Agri X1", href: "#titan-x1" },
     { name: "Flyzo", href: "#flyzo" },
     { name: "Team", href: "#team" },
     { name: "Contact", href: "#contact" },
@@ -64,10 +65,10 @@ export default function Navigation() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="bg-white text-black hover:bg-brand-orange hover:text-white font-bold rounded-full px-8 py-2 transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(250,129,0,0.4)]"
+              className="bg-brand-orange text-white hover:bg-white hover:text-black font-bold rounded-full px-8 py-2 transition-all duration-500 shadow-[0_0_20px_rgba(250,129,0,0.2)] hover:shadow-[0_0_30px_rgba(250,129,0,0.4)]"
             >
               <Link href="#contact" className="flex items-center gap-2">
-                Launch App <ArrowRight size={16} />
+                Get in Touch <ArrowRight size={16} />
               </Link>
             </Button>
           </div>
@@ -125,7 +126,7 @@ export default function Navigation() {
                   className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white font-bold py-8 text-xl rounded-2xl"
                 >
                   <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
-                    Get Started
+                    Get in Touch
                   </Link>
                 </Button>
               </motion.div>
