@@ -29,20 +29,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#020617]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-mesh opacity-40" />
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-overlay scale-110 animate-pulse"
-          style={{
-            backgroundImage:
-              "url('https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763210960690.png?width=8000&height=8000&resize=contain')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/0 via-[#020617]/50 to-[#020617]" />
-      </div>
+      {/* Dark overlay for video readability */}
+      <div className="absolute inset-0 z-0 bg-black/50" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#020617]/30 via-[#020617]/60 to-[#020617]" />
 
       {/* Floating Orbs */}
       <motion.div 
